@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Mon, 9 May 2022 08:15:21 +0200
+Subject: [PATCH] 22 tps :troll:
+
+
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index 9bba76909494839d587cdd898830202695bf6985..db9873c4714456b08d3ebb311401d41e0807e9ad 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -563,7 +563,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, IAs
+     // Paper end
+ 
+     // Paper start - Further improve server tick loop
+-    private static final int TPS = 20;
++    private static final int TPS = 22; // ElainaSpigot - :troll:
+     private static final long SEC_IN_NANO = 1000000000;
+     public static final long TICK_TIME = SEC_IN_NANO / TPS;
+     private static final long MAX_CATCHUP_BUFFER = TICK_TIME * TPS * 60L;

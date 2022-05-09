@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.kurumifake</groupId>
+    <groupId>me.kurumifake.elainaspigot</groupId>
     <artifactId>elainaspigot-parent</artifactId>
     <version>dev-SNAPSHOT</version>
     <packaging>pom</packaging>

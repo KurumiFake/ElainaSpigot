@@ -17,3 +17,15 @@ index 9bba76909494839d587cdd898830202695bf6985..db9873c4714456b08d3ebb311401d41e
      private static final long SEC_IN_NANO = 1000000000;
      public static final long TICK_TIME = SEC_IN_NANO / TPS;
      private static final long MAX_CATCHUP_BUFFER = TICK_TIME * TPS * 60L;
+diff --git a/src/main/java/org/spigotmc/TicksPerSecondCommand.java b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+index 6d21c326922ad424734c803c8f0ab586bfa999b7..248911cfe2dc5c6633a0f704c46ffd6115fcd2fe 100644
+--- a/src/main/java/org/spigotmc/TicksPerSecondCommand.java
++++ b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+@@ -39,6 +39,6 @@ public class TicksPerSecondCommand extends Command
+     private static String format(double tps) // Paper - Made static
+     {
+         return ( ( tps > 18.0 ) ? ChatColor.GREEN : ( tps > 16.0 ) ? ChatColor.YELLOW : ChatColor.RED ).toString()
+-                + ( ( tps > 20.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 );
++                + ( ( tps > 22.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 ); // ElainaSpigot :troll:
+     }
+ }

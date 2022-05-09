@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Mon, 9 May 2022 12:02:29 +0200
+Subject: [PATCH] disable spigot's verbose by default
+
+
+diff --git a/src/main/java/org/spigotmc/SpigotWorldConfig.java b/src/main/java/org/spigotmc/SpigotWorldConfig.java
+index d58f1a8d5ea9d439ac51ce607cdad6fa63f49216..ce98b8acbda3fc7d62cf0860650a0482c22b69b8 100644
+--- a/src/main/java/org/spigotmc/SpigotWorldConfig.java
++++ b/src/main/java/org/spigotmc/SpigotWorldConfig.java
+@@ -20,7 +20,7 @@ public class SpigotWorldConfig
+ 
+     public void init()
+     {
+-        this.verbose = getBoolean( "verbose", true );
++        this.verbose = getBoolean( "verbose", false );
+ 
+         log( "-------- World Settings For [" + worldName + "] --------" );
+         SpigotConfig.readConfig( SpigotWorldConfig.class, this );

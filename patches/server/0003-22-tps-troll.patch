@@ -17,8 +17,36 @@ index 9bba76909494839d587cdd898830202695bf6985..db9873c4714456b08d3ebb311401d41e
      private static final long SEC_IN_NANO = 1000000000;
      public static final long TICK_TIME = SEC_IN_NANO / TPS;
      private static final long MAX_CATCHUP_BUFFER = TICK_TIME * TPS * 60L;
+diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
+index 25fda12b3ecca985182a1e4113401afb48688d74..df535ea56163d61ba2b77e20cf3f437c4fa5e23f 100644
+--- a/src/main/java/net/minecraft/server/PlayerConnection.java
++++ b/src/main/java/net/minecraft/server/PlayerConnection.java
+@@ -325,9 +325,9 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+ 
+ 
+                 // CraftBukkit start - handle custom speeds and skipped ticks
+-                this.allowedPlayerTicks += (System.currentTimeMillis() / 50) - this.lastTick;
++                this.allowedPlayerTicks += (System.currentTimeMillis() / 45) - this.lastTick;
+                 this.allowedPlayerTicks = Math.max(this.allowedPlayerTicks, 1);
+-                this.lastTick = (int) (System.currentTimeMillis() / 50);
++                this.lastTick = (int) (System.currentTimeMillis() / 45);
+ 
+                 ++this.receivedMovePackets;
+                 int i = this.receivedMovePackets - this.processedMovePackets;
+@@ -577,9 +577,9 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+                             int i = this.receivedMovePackets - this.processedMovePackets;
+ 
+                             // CraftBukkit start - handle custom speeds and skipped ticks
+-                            this.allowedPlayerTicks += (System.currentTimeMillis() / 50) - this.lastTick;
++                            this.allowedPlayerTicks += (System.currentTimeMillis() / 45) - this.lastTick;
+                             this.allowedPlayerTicks = Math.max(this.allowedPlayerTicks, 1);
+-                            this.lastTick = (int) (System.currentTimeMillis() / 50);
++                            this.lastTick = (int) (System.currentTimeMillis() / 45);
+ 
+                             if (i > Math.max(this.allowedPlayerTicks, 5)) {
+                                 PlayerConnection.LOGGER.debug("{} is sending move packets too frequently ({} packets since last tick)", this.player.getName(), Integer.valueOf(i));
 diff --git a/src/main/java/org/spigotmc/TicksPerSecondCommand.java b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
-index 6d21c326922ad424734c803c8f0ab586bfa999b7..248911cfe2dc5c6633a0f704c46ffd6115fcd2fe 100644
+index 6d21c326922ad424734c803c8f0ab586bfa999b7..d0c19006794f35defb0418bc568e4e329514cd06 100644
 --- a/src/main/java/org/spigotmc/TicksPerSecondCommand.java
 +++ b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
 @@ -39,6 +39,6 @@ public class TicksPerSecondCommand extends Command
@@ -26,6 +54,6 @@ index 6d21c326922ad424734c803c8f0ab586bfa999b7..248911cfe2dc5c6633a0f704c46ffd61
      {
          return ( ( tps > 18.0 ) ? ChatColor.GREEN : ( tps > 16.0 ) ? ChatColor.YELLOW : ChatColor.RED ).toString()
 -                + ( ( tps > 20.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 );
-+                + ( ( tps > 22.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 ); // ElainaSpigot :troll:
++                + ( ( tps > 22.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 22.0 ); // ElainaSpigot :troll:
      }
  }

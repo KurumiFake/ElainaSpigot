@@ -22,7 +22,7 @@ jobs:
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
         git submodule update --init --recursive
-        ./elainaspigot jar
+        ./elaina jar
     - uses: actions/upload-artifact@v2
       with:
         name: ElainaSpigot-PR${{ github.event.pull_request.number }}-JDK${{ matrix.java }}
